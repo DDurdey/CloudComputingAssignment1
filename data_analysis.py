@@ -55,9 +55,7 @@ df[["Diet_type", "Recipe_name", "Cuisine_type", "Protein_to_Carbs_ratio", "Carbs
     index=False
 )
 
-# ---- Visualizations ----
-
-# 1) Bar chart: average protein by diet
+# 1) Bar chart
 plt.figure(figsize=(12, 6))
 sns.barplot(data=avg_macros, x="Diet_type", y="Protein(g)")
 plt.xticks(rotation=45, ha="right")
@@ -66,7 +64,7 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, "avg_protein_by_diet.png"), dpi=150)
 plt.close()
 
-# 2) Bar chart: avg macros by diet
+# 2) Bar chart
 avg_macros_melt = avg_macros.melt(
     id_vars="Diet_type",
     value_vars=numeric_cols,
@@ -81,7 +79,7 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, "avg_macros_by_diet.png"), dpi=150)
 plt.close()
 
-# 3) Heatmap: avg macros per diet
+# 3) Heatmap
 heatmap_data = avg_macros.set_index("Diet_type")[numeric_cols]
 plt.figure(figsize=(10, 6))
 sns.heatmap(heatmap_data, annot=True, cmap="viridis")
@@ -90,7 +88,7 @@ plt.tight_layout()
 plt.savefig(os.path.join(OUTPUT_DIR, "avg_macros_heatmap.png"), dpi=150)
 plt.close()
 
-# 4) Scatter: top protein recipes
+# 4) Scatter
 plt.figure(figsize=(12, 7))
 sns.scatterplot(
     data=top_protein,
