@@ -1,0 +1,3 @@
+Downloade the Azurite image via Docker, and ran the server.
+Connected the local Azurite Storage Explorer to server and uploaded the All_Diets.csv through the GUI.
+Ran into an API version issue when trying to run the Python file, but using the parameter "--skipApiVersionCheck" on a new Docker instance of Azurite fixed it. Ran the python file and it successfully processed, calculated, and stored the data into /simulated_nosql/results.json
