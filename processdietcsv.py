@@ -2,6 +2,7 @@ from azure.storage.blob import BlobServiceClient
 import pandas as pd
 import io
 import json
+import os
  
 
 def process_nutritional_data_from_azurite():
@@ -33,6 +34,7 @@ def process_nutritional_data_from_azurite():
 
     # Save results locally as JSON (simulate NoSQL storage)
     result = avg_macros.reset_index().to_dict(orient='records')
+    os.makedirs('simulated_nosql', exist_ok=True)
     with open('simulated_nosql/results.json', 'w') as f:
         json.dump(result, f)
 
