@@ -27,6 +27,11 @@ jobs:
       - name: Basic Python import check
         run: python -c "import pandas, matplotlib, seaborn"
 
+      - name: Run Task 1 locally (generate outputs)
+        run: |
+          python data_analysis.py
+          ls -R
+
       # ---- Task 3 in CI: start Azurite ----
       - name: Start Azurite
         run: |
